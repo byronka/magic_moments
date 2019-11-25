@@ -1,0 +1,9 @@
+[13:26:49] <kensan> byronkatz: We do some mocking in our projects.
+[13:26:55] <kensan> byronkatz: Let me see...
+[13:27:29] <kensan> byronkatz: e.g. in adhcp for package level stuff
+[13:28:02] <kensan> byronkatz: For one we use tagged types and dynamic dispatch: https://git.codelabs.ch/?p=adhcp.git;a=blob;f=tests/v4/dhcpv4-transactions-mock.ads;h=2bd88d6acc6c1bce4f647010bf97ca2edda56a32;hb=161202084b1096ec82ecd5d84c7939037ad1bb1e
+[13:28:33] <kensan> byronkatz: on the other hand we use different packages for tests which are selected during compile-time 
+[13:28:46] <kensan> byronkatz: e.g. the whole transmission layer https://git.codelabs.ch/?p=adhcp.git;a=blob;f=tests/v4/dhcpv4-transmission-mock.ads;h=0f60a66c9753fccfaa282b109d7c8d761e355009;hb=161202084b1096ec82ecd5d84c7939037ad1bb1e
+[13:29:22] <kensan> byronkatz: This is how we select different implementations during compile time https://git.codelabs.ch/?p=adhcp.git;a=blob;f=adhcp_tests.gpr;h=6236a514ca5ec1bc8939046a45687d997a5ee8a7;hb=161202084b1096ec82ecd5d84c7939037ad1bb1e
+[13:30:18] <brain_code> stumbled upon this in case anyone is interested: https://www.securityclearedjobs.com/job/801895819/ada-software-engineer/
+[13:33:02] <byronkatz> kensan: thanks so much!  I'll check this out.
