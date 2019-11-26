@@ -7,13 +7,17 @@ package Geometry.Circles is
       record
          Radius: Float;
       end record;
-   
-   type Test is new AUnit.Test_Fixtures.Test_Fixture with null record;
-   
+    
    function Area(C: Circle) return Float;
    function MI(C: Circle) return Float;
    function Name(C: Circle) return String;
    
-   procedure Test_Circles_Area (T : in out Test);
+private
+   
+   function return_real_value(i : Integer) return Integer;
+
+   function Area(C: Circle;
+                 baz : not null access Function(i : Integer) return Integer)
+                 return Float ;
 
 end Geometry.Circles;

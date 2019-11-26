@@ -1,0 +1,3 @@
+http://docs.adacore.com/live/wave/gnat_ugn/html/gnat_ugn/gnat_ugn/gnat_utility_programs.html#stubbing
+
+https://docs.adacore.com/gprbuild-docs/html/gprbuild_ug/gnat_project_manager.html#project-extension
