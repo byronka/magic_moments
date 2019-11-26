@@ -1,19 +1,16 @@
 with Ada.Numerics;
-with sample_dependency;
-
 
 package body Geometry.Circles is
    
    function Area(C: Circle) return Float is
+      baz : access_integer_function := sample_dependency.foo'Access;
    begin
-      return Area(C, return_real_value'Access); 
+      return Area(C, baz);
    end Area;
-   
-   function Area(C: Circle;
-                 baz : not null access Function(i : Integer) return Integer)
-                 return Float is
+      
+   function Area(C: Circle; aif : access_integer_function) return Float is
    begin
-      return Ada.Numerics.Pi * C.Radius**baz(2);
+      return Ada.Numerics.Pi * C.Radius**aif(2);
    end Area;
    
    function MI(C: Circle) return Float is
@@ -25,10 +22,5 @@ package body Geometry.Circles is
    begin
       return "Circle";
    end Name;
-                  
-   function return_real_value(i : Integer) return Integer is
-   begin
-      return sample_dependency.foo(i);
-   end return_real_value;
 
 end Geometry.Circles;

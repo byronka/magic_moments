@@ -1,5 +1,6 @@
 with AUnit;
 with Aunit.Test_Fixtures;
+with sample_dependency;
 
 package Geometry.Circles is
 
@@ -11,13 +12,8 @@ package Geometry.Circles is
    function Area(C: Circle) return Float;
    function MI(C: Circle) return Float;
    function Name(C: Circle) return String;
-   
 private
-   
-   function return_real_value(i : Integer) return Integer;
-
-   function Area(C: Circle;
-                 baz : not null access Function(i : Integer) return Integer)
-                 return Float ;
+   type access_integer_function is access function (X : Integer) return Integer;
+   function Area(C: Circle; aif : access_integer_function) return Float;
 
 end Geometry.Circles;
