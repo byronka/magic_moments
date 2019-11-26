@@ -13,7 +13,7 @@ package Geometry.Circles is
    function MI(C: Circle) return Float;
    function Name(C: Circle) return String;
 private
-   type access_integer_function is access function (X : Integer) return Integer;
-   function Area(C: Circle; aif : access_integer_function) return Float;
+   function Area(C: Circle; 
+                 aif : access function (X : Integer) return Integer) return Float;
 
 end Geometry.Circles;

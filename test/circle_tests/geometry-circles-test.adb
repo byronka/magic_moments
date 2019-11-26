@@ -13,9 +13,8 @@ package body Geometry.Circles.Test is
       begin
          return 2;
       end return_fake_value;
-      baz : access function (X : Integer) return Integer := return_fake_value'Access;
    begin
-      Result := Area(C => my_circle, aif => baz);
+      Result := Area(C => my_circle, aif => return_fake_value'Access);
       Actual_Epsilon := Result - Expected_Result;
       Aunit.Assertions.Assert( Actual_Epsilon < 0.001, "not spot-on, epsilon was: " & Actual_Epsilon'Image);
    end Test_Circles_Area;

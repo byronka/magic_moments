@@ -3,12 +3,12 @@ with Ada.Numerics;
 package body Geometry.Circles is
    
    function Area(C: Circle) return Float is
-      baz : access_integer_function := sample_dependency.foo'Access;
    begin
-      return Area(C, baz);
+      return Area(C, sample_dependency.foo'Access);
    end Area;
       
-   function Area(C: Circle; aif : access_integer_function) return Float is
+   function Area (C: Circle; 
+                  aif : access function (X : Integer) return Integer) return Float is
    begin
       return Ada.Numerics.Pi * C.Radius**aif(2);
    end Area;
