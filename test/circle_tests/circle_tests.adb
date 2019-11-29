@@ -11,7 +11,6 @@ package body circle_tests is
    
    use constants;
    
-   -- just trying to make sure the area is right
    procedure Test_Circles_Area (T : in out Test) is
       Radius : Float := 3.0;
       Result, Actual_Epsilon : Float;
@@ -23,7 +22,6 @@ package body circle_tests is
       Aunit.Assertions.Assert( Actual_Epsilon < Epsilon_default, "not spot-on, epsilon was: " & Actual_Epsilon'Image);
    end Test_Circles_Area;
 
-   -- just trying to make sure the moment of inertia is handled right
    procedure Test_Circles_MI (T : in out Test) is
       Radius : Float := 3.0;
       Result, Actual_Epsilon : Float;
@@ -35,7 +33,6 @@ package body circle_tests is
       Aunit.Assertions.Assert( Actual_Epsilon < Epsilon_default, "not spot-on, epsilon was: " & Actual_Epsilon'Image);
    end Test_Circles_MI;
    
-   -- testing area with a big radius (3 thousand)
    procedure Test_BigCircle_Area (T : in out Test) is
       Radius : Float := 3_000.0;
       Result, Actual_Epsilon : Float;
@@ -47,7 +44,6 @@ package body circle_tests is
       Aunit.Assertions.Assert( Actual_Epsilon < Epsilon_default, "not spot-on, epsilon was: " & Actual_Epsilon'Image);
    end Test_BigCircle_Area;
    
-   -- circle should have a name of "circle"
    procedure Test_Circle_Name (T : in out Test) is
       my_circle : Circle := (0.0,0.0,0.0);
    begin

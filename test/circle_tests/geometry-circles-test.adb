@@ -2,7 +2,6 @@ with AUnit.Assertions;
 
 package body Geometry.Circles.Test is
 
-   -- just trying to make sure the area is right
    procedure Test_Circles_Area (T : in out Test) is
       Radius : Float := 3.0;
       Result, Actual_Epsilon : Float;
