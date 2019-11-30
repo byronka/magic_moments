@@ -5,8 +5,10 @@ with Geometry.Circles;
 with Geometry.Triangles;
 with Geometry.Point;
 with Ada.Numerics;
+with Ada.Text_IO;
   
 use Geometry;
+
 
 package body list_tests is
 
@@ -72,5 +74,31 @@ package body list_tests is
       AUnit.Assertions.Assert(point_area_is_correct, "The point's area is always 0");
    end Test_Should_List_Point;
    
+   procedure Test_Can_Add_Lots_Of_Entries (T : in out Test) is
+      use Geometry.Lists;
+      l : Lists.List := null;
+      p : access Cell;
+      count : Natural := 0;
+   begin
+      for i in 1 .. 1_000_000 loop
+         Lists.Add_To_List(l, new Squares.Square'(1.0, 1.0, 1.0));
+      end loop;
+      
+      -- we have generated this linked list:
+      --   (square)1 -> (square)2 -> ... -> (square)1,000,000 -> null
+      
+      -- To count the list we can loop through and count the number
+      -- of loops before we hit null
+      p := l;
+      while p /= null loop
+         count := count + 1;
+         p := p.Next;
+      end loop;
+       
+      AUnit.Assertions.Assert(count = 1_000_000, 
+                              "We should have counted a lot of times looping");
+   end Test_Can_Add_Lots_Of_Entries;
+   
+  
    
 end list_tests;

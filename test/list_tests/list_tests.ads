@@ -21,5 +21,8 @@ package list_tests is
    -- what happens if we add a point to the list?
    procedure Test_Should_List_Point (T : in out Test);
    
+   -- we should be able to add a lot of entries - say a million.
+   procedure Test_Can_Add_Lots_Of_Entries (T : in out Test);
+   
 
 end list_tests;

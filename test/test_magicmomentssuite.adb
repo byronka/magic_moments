@@ -52,6 +52,9 @@ package body test_magicmomentssuite is
       this_suite.Add_Test(list_caller.Create(
                           "list_tests.Test_Should_List_Point",
                           list_tests.Test_Should_List_Point'Access));
+      this_suite.Add_Test(list_caller.Create(
+                          "list_tests.Test_Can_Add_Lots_Of_Entries",
+                          list_tests.Test_Can_Add_Lots_Of_Entries'Access));
 
 
       return this_suite;
