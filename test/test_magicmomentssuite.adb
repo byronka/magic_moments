@@ -17,19 +17,43 @@ package body test_magicmomentssuite is
    function Suite return AUnit.Test_Suites.Access_Test_Suite is
       this_suite : constant AUnit.Test_Suites.Access_Test_Suite := AUnit.Test_Suites.New_Suite;
    begin
-      this_suite.Add_Test(circle_caller.Create("A basic test for circle area", circle_tests.Test_Circles_Area'Access));
-      this_suite.Add_Test(circle_caller.Create("A basic test for circle MI", circle_tests.Test_Circles_MI'Access));
-      this_suite.Add_Test(circle_caller.Create("testing a large radius on a circle", circle_tests.Test_BigCircle_Area'Access));
-      this_suite.Add_Test(circle_caller.Create("testing that the name for circles is 'circle'", circle_tests.Test_Circle_Name'Access));
+      this_suite.Add_Test(circle_caller.Create("circle_tests.Test_Circles_Area",
+                            circle_tests.Test_Circles_Area'Access));
+      this_suite.Add_Test(circle_caller.Create("circle_tests.Test_Circles_MI",
+                          circle_tests.Test_Circles_MI'Access));
+      this_suite.Add_Test(circle_caller.Create("circle_tests.Test_BigCircle_Area",
+                          circle_tests.Test_BigCircle_Area'Access));
+      this_suite.Add_Test(circle_caller.Create("circle_tests.Test_Circle_Name",
+                          circle_tests.Test_Circle_Name'Access));
 
-      this_suite.Add_Test(square_caller.Create("a basic square area test", square_tests.Test_Squares_Area'Access));
-      this_suite.Add_Test(square_caller.Create("a basic square MI test", square_tests.Test_Squares_MI'Access));
-      this_suite.Add_Test(square_caller.Create("a basic square name test", square_tests.Test_Squares_Name'Access));
+      this_suite.Add_Test(square_caller.Create("square_tests.Test_Squares_Area",
+                          square_tests.Test_Squares_Area'Access));
+      this_suite.Add_Test(square_caller.Create("square_tests.Test_Squares_MI",
+                          square_tests.Test_Squares_MI'Access));
+      this_suite.Add_Test(square_caller.Create("square_tests.Test_Squares_Name",
+                          square_tests.Test_Squares_Name'Access));
 
       -- testing inside the class so we have access to private stuff
-      this_suite.Add_Test(insideCircles_caller.Create("madness! testing *inside* the class", geometry.Circles.Test.Test_Circles_Area'Access));
+      this_suite.Add_Test(insideCircles_caller.Create(
+                          "geometry.Circles.Test.Test_Circles_Area",
+                          geometry.Circles.Test.Test_Circles_Area'Access));
 
-      this_suite.Add_Test(list_caller.Create("A first test for lists", list_tests.List_Basic_Test'Access));
+      this_suite.Add_Test(list_caller.Create("list_tests.List_Basic_Test",
+                            list_tests.List_Basic_Test'Access));
+      this_suite.Add_Test(list_caller.Create(
+                          "list_tests.Test_Should_List_Triangle",
+                          list_tests.Test_Should_List_Triangle'Access));
+      this_suite.Add_Test(list_caller.Create(
+                          "list_tests.Test_Should_List_Square",
+                          list_tests.Test_Should_List_Square'Access));
+      this_suite.Add_Test(list_caller.Create(
+                          "list_tests.Test_Should_List_Circle",
+                          list_tests.Test_Should_List_Circle'Access));
+      this_suite.Add_Test(list_caller.Create(
+                          "list_tests.Test_Should_List_Point",
+                          list_tests.Test_Should_List_Point'Access));
+
+
       return this_suite;
    end Suite;
 

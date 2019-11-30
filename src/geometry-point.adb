@@ -1,4 +1,4 @@
-package body Geometry.Circles is
+package body Geometry.Point is
 
    function Area(P: Point) return Float is
    begin
@@ -7,7 +7,7 @@ package body Geometry.Circles is
    
    function MI(P: Point) return Float is
    begin
-      return 0.0
+      return 0.0;
    end MI;
    
    function Name(P: Point) return String is
@@ -15,4 +15,4 @@ package body Geometry.Circles is
       return "Point";
    end Name;
 
-end Geometry.Circles;
+end Geometry.Point;
